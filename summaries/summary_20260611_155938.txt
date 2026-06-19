@@ -1,0 +1,62 @@
+MEETING SUMMARY
+============================================================
+Generated:   2026-06-11 15:59:38
+Source file: meeting.txt
+Model used:  gemini-2.5-flash
+============================================================
+
+Here's a summary of the Q3 Product Roadmap Review meeting:
+
+## Meeting Summary
+
+The Q3 Product Roadmap Review meeting focused on finalizing three key features for Q3: notification redesign, CSV export functionality, and mobile push notifications. Decisions were made regarding the implementation details for each, including badge count truncation for notifications, asynchronous processing for large CSV exports, and the approval of mobile push notifications for a Q3 September launch. An urgent API rate limit issue affecting dashboard performance was also discussed, with a short-term caching solution approved and a long-term plan for budget approval initiated.
+
+## Key Discussion Points
+
+*   **Notification Redesign:**
+    *   Deepa Nair completed mockups.
+    *   Concern raised by Rohan Kapoor about badge count visibility on small screens (375px width).
+    *   Solution proposed by Deepa and Arjun Mehta: truncate badge count at "99+".
+*   **CSV Export Functionality:**
+    *   Estimated 6 days of development work.
+    *   Complexity involves handling large datasets (e.g., 100,000 rows) asynchronously.
+    *   Estimated file size for 100k rows: 15-20 MB compressed.
+    *   Simran Bedi inquired about a "share via link" option, which was deferred as a separate feature.
+*   **Mobile Push Notification System:**
+    *   Market research by Simran Bedi showed 78% user interest.
+    *   Top requested notification types: payment confirmations, task assignment alerts, weekly digest.
+    *   Engineering estimate: 3-4 weeks for development (FCM/APNs integration) plus QA.
+    *   QA will require a comprehensive regression suite across multiple iOS and Android versions.
+*   **API Rate Limit Issue (Urgent):**
+    *   Third-party data provider reduced rate limit from 1000 to 200 requests/minute without notice.
+    *   Impact: slow dashboard load times, stale data.
+    *   Options discussed: upgrade plan, implement caching, switch providers.
+    *   Upgrade cost: $800/month for enterprise plan.
+
+## Action Items
+
+*   **Deepa Nair:** Update notification redesign mockups to reflect "99+" badge count truncation and share the final version by Wednesday EOD.
+*   **Arjun Mehta:**
+    *   Add async background processing for CSV exports (over 10,000 rows) to the sprint backlog and create the ticket today.
+    *   Implement 5-minute Redis caching for frequently accessed dashboard queries as a short-term fix for the API rate limit issue by end of next week.
+    *   Own the backend FCM and APNs integration for mobile push notifications.
+*   **Simran Bedi:**
+    *   Write up customer requests for "share via link" on CSV exports and add them to the feature request backlog by end of week.
+    *   Prepare go-to-market materials for mobile push notifications closer to launch (start drafting announcement blog post next month).
+*   **Rohan Kapoor:**
+    *   Build out the regression suite for mobile push notifications (minimum iOS 16, iOS 17, Android 12, Android 14).
+    *   Start the test plan for Q3 features this week.
+*   **Priya Sharma:** Seek budget approval from the finance team for the enterprise plan upgrade with the third-party data provider. Follow up in the next sprint review.
+
+## Decisions Made
+
+*   **Notification Redesign:** Implement "99+" truncation for the badge count on small screens.
+*   **CSV Export:** Use asynchronous background processing for exports over 10,000 rows, with users receiving an email when the file is ready.
+*   **Mobile Push Notifications:** Approved for Q3, with a target launch at the end of September.
+*   **API Rate Limit Issue:**
+    *   Arjun Mehta to implement Redis caching as a short-term fix.
+    *   Priya Sharma to seek budget approval for upgrading to the enterprise plan with the data provider as a long-term solution.
+
+## Risks/Blockers
+
+*   **API Rate Limit Issue:** The current reduced API rate limit is causing slow dashboard load times and stale data, impacting user experience. The long-term solution (enterprise plan upgrade) requires budget approval.

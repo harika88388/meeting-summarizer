@@ -1,0 +1,4 @@
+﻿risk_id,meeting_id,meeting_date,risk,severity
+r_3b614419_0,m_3b614419,2026-06-16,Backend integration delay may push the demo,High
+r_3b614419_1,m_3b614419,2026-06-16,Third-party API rate limits not yet confirmed,Medium
+r_3b614419_2,m_3b614419,2026-06-16,QA regression suite not started for push features,Low

@@ -1,0 +1,36 @@
+MEETING SUMMARY
+============================================================
+Generated:   2026-06-11 15:29:54
+Source file: meeting.txt
+Model used:  gemini-2.5-flash
+============================================================
+
+**Meeting Overview**
+- Date/time: July 15, 2024, 10:00 AM – 11:30 AM IST
+- Attendees: Priya Sharma (Product Manager), Arjun Mehta (Engineering Lead), Deepa Nair (Design), Rohan Kapoor (QA), Simran Bedi (Marketing). Vikram was absent.
+- Meeting purpose: Finalize the Q3 product roadmap.
+
+**Key Topics Discussed**
+- Notification redesign, including badge count display on small screens.
+- CSV export functionality, focusing on handling large datasets.
+- Mobile push notification system, including market research and technical integration.
+- An unresolved API rate limit issue affecting dashboard load times.
+
+**Decisions Made**
+- Notification redesign: Badge count will use 99+ truncation.
+- CSV export: Exports over 10,000 rows will use asynchronous background processing, with users receiving an email when the file is ready.
+- Mobile push notifications: Approved for Q3 with a target launch at the end of September.
+- API rate limit issue: Arjun will implement Redis caching as a short-term fix. Priya will seek budget approval for an enterprise plan upgrade with the third-party data provider.
+
+**Action Items**
+- Deepa Nair: Update notification redesign mockup to reflect 99+ truncation and share the final version by Wednesday EOD.
+- Arjun Mehta: Add async CSV export to the sprint backlog and create the ticket today.
+- Simran Bedi: Write up customer requests for a "share via link" option for CSV export and add them to the feature request backlog by end of week.
+- Arjun Mehta: Own the backend FCM and APNs integration for mobile push notifications.
+- Rohan Kapoor: Build out the regression suite for mobile push notifications (test on iOS 16, iOS 17, Android 12, Android 14).
+- Simran Bedi: Prepare go-to-market materials for mobile push notifications, starting with drafting the announcement blog post next month.
+- Arjun Mehta: Implement a 5-minute Redis cache for frequently accessed dashboard queries by end of next week.
+- Priya Sharma: Raise budget approval for the enterprise plan upgrade with the finance team.
+
+**Open Questions / Parking Lot**
+- The "share via link" option for CSV export was raised but will be scoped separately and added to the feature request backlog.

@@ -1,0 +1,43 @@
+# .gitignore for Meeting Summarizer
+#
+# WHY this file exists:
+#   Git tracks changes to files. But some files should NEVER be committed:
+#   - Secret keys (.env) — security risk
+#   - Compiled/cached Python files (__pycache__) — generated, not source
+#   - Virtual environment (venv/) — too large, platform-specific, reproducible via requirements.txt
+#   - IDE config (.vscode/, .idea/) — personal preferences, not project code
+#   - Output files (summaries/) — generated artifacts, not source code
+
+# === SECRETS (CRITICAL — NEVER COMMIT) ===
+.env
+*.key
+*.pem
+
+# === PYTHON CACHE ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# === VIRTUAL ENVIRONMENT ===
+venv/
+.venv/
+env/
+ENV/
+
+# === IDE CONFIG ===
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# === GENERATED OUTPUT ===
+# Optionally ignore summaries (they're generated, not source code)
+# Uncomment the next line if you don't want to track summaries in Git:
+# summaries/
+
+# === TRANSCRIPTS ===
+# Transcripts may contain confidential information.
+# Consider ignoring them if they contain sensitive meeting content:
+# transcripts/

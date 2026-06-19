@@ -1,0 +1,2 @@
+﻿meeting_id,meeting_date,filename,summary,total_actions,total_decisions,total_risks,processed_at
+m_3b614419,2026-06-16,sample_meeting.txt,"The Q3 roadmap review covered three key features: notification redesign, CSV export, and mobile push notifications. Decisions were made on all three, and multiple action items were assigned with deadlines.",4,3,3,2026-06-19 19:48:23

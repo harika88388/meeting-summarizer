@@ -1,0 +1,87 @@
+Microsoft Teams Meeting Transcript
+Meeting: Q3 Product Roadmap Review
+Date: July 15, 2024
+Time: 10:00 AM – 11:30 AM IST
+Attendees: Priya Sharma (Product Manager), Arjun Mehta (Engineering Lead), Deepa Nair (Design), Rohan Kapoor (QA), Simran Bedi (Marketing)
+
+---
+
+[10:01 AM] Priya Sharma: Good morning everyone. Let's get started. Quick note — Vikram is traveling so he won't be joining. This session is to finalize what we're building in Q3 and lock down the roadmap.
+
+[10:02 AM] Arjun Mehta: Before we begin, can I raise something? The API rate limit issue from last sprint is still unresolved. It's affecting the dashboard load times.
+
+[10:03 AM] Priya Sharma: Let's put that in the parking lot — Arjun, can you add it as a point at the end? We have hard stops today so I want to keep us moving.
+
+[10:04 AM] Arjun Mehta: Sure.
+
+[10:05 AM] Priya Sharma: Okay. So the three features we're discussing today are: one, the notification redesign; two, the CSV export functionality; and three, the mobile push notification system.
+
+[10:06 AM] Deepa Nair: I've completed the mockups for the notification redesign. I shared them in the design channel last Thursday. Did everyone get a chance to look?
+
+[10:07 AM] Rohan Kapoor: I did. The new layout looks much cleaner. One concern — the badge count is not visible on small screens. Did you test on 375px width?
+
+[10:08 AM] Deepa Nair: Yes actually — I tested on 360px and 375px. The badge count wraps to a second line on very small screens. I think we should truncate it at 99+ rather than showing the full count.
+
+[10:09 AM] Arjun Mehta: Agreed. 99+ is the industry standard. Gmail, WhatsApp — they all do it.
+
+[10:10 AM] Priya Sharma: Decision: we go with 99+ truncation for badge count. Deepa, can you update the mockup to reflect that and share the final version by Wednesday?
+
+[10:11 AM] Deepa Nair: Yes, I'll have it done by Wednesday EOD.
+
+[10:15 AM] Priya Sharma: Moving on — CSV export. Arjun, what's the dev estimate?
+
+[10:16 AM] Arjun Mehta: We scoped it last week. It's about 6 days of dev work. The main complexity is handling large datasets — if a user tries to export 100,000 rows, we can't do that synchronously. We'd need a background job and an email notification when the file is ready.
+
+[10:17 AM] Rohan Kapoor: What's the expected file size for 100k rows? We need to test download time.
+
+[10:18 AM] Arjun Mehta: Rough estimate — 15 to 20 MB compressed. Should be fine for download, but the generation itself could take 2–3 minutes.
+
+[10:19 AM] Priya Sharma: Okay. Decision: CSV export will use async background processing for exports over 10,000 rows. Users will receive an email when the file is ready. Arjun, please add this to the sprint backlog.
+
+[10:20 AM] Arjun Mehta: Will do. I'll create the ticket today.
+
+[10:25 AM] Simran Bedi: Quick question on CSV export — can we also include a "share via link" option? Customers have been asking for it.
+
+[10:26 AM] Priya Sharma: Good point. Let's scope that separately — it's a different feature. Simran, can you write up the customer requests and add them to the feature request backlog?
+
+[10:27 AM] Simran Bedi: Yes, I'll do that by end of week.
+
+[10:30 AM] Priya Sharma: Third item — mobile push notifications. Simran, you had the market research?
+
+[10:31 AM] Simran Bedi: Yes. We surveyed 200 active users. 78% said they would use mobile push notifications if we offered them. The top requested notification types were: payment confirmations, task assignment alerts, and weekly digest.
+
+[10:33 AM] Arjun Mehta: From an engineering perspective, mobile push requires integrating Firebase Cloud Messaging for Android and APNs for iOS. It's not trivial — I'd estimate 3 to 4 weeks of development plus QA.
+
+[10:34 AM] Rohan Kapoor: We'll also need to set up a full regression suite for push notifications — device coverage is going to be important. At minimum we should test on iOS 16, iOS 17, Android 12, and Android 14.
+
+[10:35 AM] Priya Sharma: Okay. Decision: mobile push notifications are approved for Q3. Target launch: end of September. Arjun, you'll own the backend FCM and APNs integration. Rohan, you'll build out the regression suite. Simran — can you prepare the go-to-market materials once we get closer to launch?
+
+[10:36 AM] Simran Bedi: Absolutely. I'll start drafting the announcement blog post next month.
+
+[10:40 AM] Priya Sharma: Before we wrap up — Arjun, you mentioned the API rate limit issue earlier.
+
+[10:41 AM] Arjun Mehta: Right. So our third-party data provider reduced our rate limit from 1000 requests per minute to 200 requests per minute without notice. It's causing the dashboard to sometimes load slowly or show stale data. We have three options: one, upgrade our plan with the provider; two, implement caching on our side; three, switch providers.
+
+[10:43 AM] Priya Sharma: What's the cost of upgrading?
+
+[10:44 AM] Arjun Mehta: Their enterprise plan is $800 per month more than what we pay now.
+
+[10:45 AM] Priya Sharma: That needs budget approval. I'll raise it with the finance team. In the meantime, can you implement caching as a short-term fix?
+
+[10:46 AM] Arjun Mehta: Yes, I can implement a 5-minute Redis cache for the most frequently accessed dashboard queries. That should reduce our API calls by about 70%.
+
+[10:47 AM] Priya Sharma: Decision: Arjun to implement Redis caching as a short-term fix by end of next week. Priya to seek budget approval for the enterprise plan upgrade. Follow up in next sprint review.
+
+[10:50 AM] Priya Sharma: Alright, I think that's everything. Let me quickly summarize what we decided: notification redesign moving forward with 99+ badge count, CSV export with async processing, mobile push notifications approved for Q3 September launch, and the API rate limit fix in progress. Does anyone have anything else?
+
+[10:51 AM] Deepa Nair: Nothing from me.
+
+[10:51 AM] Rohan Kapoor: All good. I'll start the test plan this week.
+
+[10:52 AM] Priya Sharma: Great. Thanks everyone. See you at the sprint review Thursday.
+
+[10:52 AM] Arjun Mehta: Thanks. Bye everyone.
+
+[10:52 AM] Simran Bedi: Thanks. Bye!
+
+--- END OF TRANSCRIPT ---

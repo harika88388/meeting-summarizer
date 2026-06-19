@@ -1,0 +1,4 @@
+﻿decision_id,meeting_id,meeting_date,decision
+d_3b614419_0,m_3b614419,2026-06-16,Move product demo to Friday 2026-06-19
+d_3b614419_1,m_3b614419,2026-06-16,Use Redis for session caching
+d_3b614419_2,m_3b614419,2026-06-16,Badge count truncated at 99+ on mobile

@@ -1,0 +1,52 @@
+MEETING SUMMARY
+============================================================
+Generated:   2026-06-11 15:50:57
+Source file: meeting.txt
+Model used:  gemini-2.5-flash
+============================================================
+
+Here's a summary of your Microsoft Teams meeting transcript:
+
+---
+
+### 1. Meeting Summary
+
+The Q3 Product Roadmap Review meeting, attended by Priya Sharma (Product Manager), Arjun Mehta (Engineering Lead), Deepa Nair (Design), Rohan Kapoor (QA), and Simran Bedi (Marketing), focused on finalizing the Q3 product roadmap. The team discussed and made decisions on three key features: notification redesign, CSV export functionality, and mobile push notifications. Additionally, a critical API rate limit issue affecting dashboard load times was addressed, with a short-term fix and a long-term solution planned. The meeting concluded with clear action items and ownership for each initiative.
+
+### 2. Key Discussion Points
+
+*   **Q3 Feature Prioritization**: Discussion centered around the implementation details and timelines for three core features:
+    *   **Notification Redesign**: Focused on UI improvements and handling of badge counts on small screens.
+    *   **CSV Export Functionality**: Explored technical implementation for handling large datasets asynchronously.
+    *   **Mobile Push Notifications**: Reviewed market research, engineering effort, and QA requirements for integration.
+*   **API Rate Limit Issue**: A critical issue regarding a reduced API rate limit from a third-party data provider, causing dashboard performance degradation, was discussed.
+*   **Feature Scope and Future Considerations**: Ideas like "share via link" for CSV export were parked for separate scoping, and go-to-market strategies for push notifications were outlined.
+
+### 3. Action Items
+
+*   **Deepa Nair**: Update notification redesign mockups to reflect 99+ truncation for badge count and share the final version by Wednesday EOD.
+*   **Arjun Mehta**:
+    *   Add CSV export with async processing for >10,000 rows to the sprint backlog and create the ticket today.
+    *   Own the backend FCM and APNs integration for mobile push notifications.
+    *   Implement a 5-minute Redis cache for frequently accessed dashboard queries as a short-term fix for the API rate limit issue by end of next week.
+*   **Simran Bedi**:
+    *   Write up customer requests for the "share via link" option for CSV export and add them to the feature request backlog by end of week.
+    *   Prepare go-to-market materials for mobile push notifications closer to launch, starting to draft the announcement blog post next month.
+*   **Rohan Kapoor**:
+    *   Build out the regression suite for mobile push notifications, testing on iOS 16, iOS 17, Android 12, and Android 14.
+    *   Start the test plan for Q3 features this week.
+*   **Priya Sharma**: Seek budget approval from the finance team for the enterprise plan upgrade with the third-party data provider to resolve the API rate limit issue long-term. Follow up in the next sprint review.
+
+### 4. Decisions Made
+
+*   **Notification Redesign**: The badge count will be truncated to "99+" on small screens.
+*   **CSV Export**: Exports over 10,000 rows will use asynchronous background processing, and users will receive an email notification when the file is ready.
+*   **Mobile Push Notifications**: Approved for Q3, with a target launch at the end of September.
+*   **API Rate Limit Issue**:
+    *   A short-term fix involving a 5-minute Redis cache will be implemented.
+    *   A long-term solution will involve upgrading the plan with the third-party data provider, pending budget approval.
+
+### 5. Risks/Blockers
+
+*   **API Rate Limit Issue**: The third-party data provider reduced the rate limit without notice, causing dashboard load times to slow down and potentially display stale data. This is a critical blocker for dashboard performance.
+*   **Budget Approval**: Upgrading the third-party data provider's plan to resolve the API rate limit issue requires additional budget approval ($800/month increase).
